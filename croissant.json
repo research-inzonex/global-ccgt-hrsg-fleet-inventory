@@ -1,0 +1,598 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "equivalentProperty": "cr:equivalentProperty",
+    "samplingRate": "cr:samplingRate",
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "global-ccgt-hrsg-fleet",
+  "description": "A harmonised single-table inventory of 2,784 combined-cycle gas turbine (CCGT) power plants worldwide and their heat-recovery steam generators (HRSG) - 2,103 GW across 135 countries. Each record carries capacity (100%), operating company (99%), commissioning year (89%), lifecycle status (92%), number of HRSG units (100%), a CHP flag (36%) and, where reported, the gas and steam turbine models (18%) and annual CO2 (32%, mostly Climate TRACE modelled - read co2_basis). Compiled and deduplicated from the WRI Global Power Plant Database, Global Energy Monitor (GOGPT) and Climate TRACE. This is a cleaned, analysis-ready compilation of existing open sources - not new primary measurement; equivalent fleet detail is otherwise only available across paid trackers. CC BY 4.0.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://inzonex.co.uk/",
+  "creator": {
+    "@type": "sc:Organization",
+    "name": "Inzonex",
+    "url": "https://inzonex.co.uk/"
+  },
+  "keywords": [
+    "CCGT",
+    "combined cycle",
+    "HRSG",
+    "heat recovery steam generator",
+    "gas turbine",
+    "power plants",
+    "energy",
+    "waste heat",
+    "cogeneration",
+    "CHP"
+  ],
+  "version": "1.0.0",
+  "datePublished": "2026-08-30",
+  "citeAs": "Aheiev, D. (Inzonex). Global CCGT & HRSG Fleet Inventory: combined-cycle plants with capacity, owner, HRSG units and turbine models. CC BY 4.0.",
+  "isBasedOn": [
+    "https://datasets.wri.org/datasets/global-power-plant-database",
+    "https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/",
+    "https://climatetrace.org/",
+    "https://www.eia.gov/electricity/data/eia860/",
+    "https://www.epa.gov/egrid"
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "data/ccgt_hrsg_fleet.csv",
+      "name": "ccgt-hrsg-fleet",
+      "description": "ccgt-hrsg-fleet table",
+      "contentUrl": "data/ccgt_hrsg_fleet.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e6568bf89d80065d4bc301bf64887800b84f14bd4222f0e1a46bb5a57d6641ac"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "ccgt-hrsg-fleet",
+      "name": "ccgt-hrsg-fleet",
+      "description": "Records of data/ccgt_hrsg_fleet.csv",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/plant_id",
+          "name": "plant_id",
+          "description": "Stable identifier (WRI GPPD id or GEM id)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "plant_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/name",
+          "name": "name",
+          "description": "Plant name",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/country",
+          "name": "country",
+          "description": "Country (canonicalised via ISO3)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "country"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/iso3",
+          "name": "iso3",
+          "description": "ISO 3166-1 alpha-3",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "iso3"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/latitude",
+          "name": "latitude",
+          "description": "WGS84",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "latitude"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/longitude",
+          "name": "longitude",
+          "description": "WGS84",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "longitude"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/capacity_mw",
+          "name": "capacity_mw",
+          "description": "Installed capacity, MW",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "capacity_mw"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/commissioning_year",
+          "name": "commissioning_year",
+          "description": "Year of commissioning where known (89%)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "commissioning_year"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/gem_status",
+          "name": "gem_status",
+          "description": "Lifecycle status (operating/construction/announced/...) from GEM (92%)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "gem_status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/hrsg_units",
+          "name": "hrsg_units",
+          "description": "Number of heat-recovery steam generators at the plant (100%)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "hrsg_units"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/chp",
+          "name": "chp",
+          "description": "Combined heat & power (cogeneration) flag (36% populated)",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "chp"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/gas_steam_turbine_models",
+          "name": "gas_steam_turbine_models",
+          "description": "Gas + steam turbine make/model strings where known (18%)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "gas_steam_turbine_models"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/turbine_class",
+          "name": "turbine_class",
+          "description": "Indicative GT technology class (H/J, F, E/legacy) from turbine model where known",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "turbine_class"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/technology",
+          "name": "technology",
+          "description": "Constant: CCGT",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "technology"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/owner",
+          "name": "owner",
+          "description": "Operating company / owner (99%)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "owner"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/co2_tonnes_per_year",
+          "name": "co2_tonnes_per_year",
+          "description": "Annual CO2 where available (32%) - see co2_basis",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "co2_tonnes_per_year"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/co2_source",
+          "name": "co2_source",
+          "description": "Climate TRACE / US EPA GHGRP / EU ETS",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "co2_source"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/co2_basis",
+          "name": "co2_basis",
+          "description": "measured (EPA/EU ETS) or modelled (Climate TRACE)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "co2_basis"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/generation_gwh",
+          "name": "generation_gwh",
+          "description": "Annual generation, GWh, where reported (25%)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "generation_gwh"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/region",
+          "name": "region",
+          "description": "Sub-national region",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "region"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/nearest_place",
+          "name": "nearest_place",
+          "description": "Nearest populated place",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "nearest_place"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/data_source",
+          "name": "data_source",
+          "description": "Backbone provenance: WRI / GEM-GOGPT / Climate TRACE",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "data_source"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/gas_turbine_count",
+          "name": "gas_turbine_count",
+          "description": "Number of combustion-turbine units (US plants, EIA-860 generator records)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "gas_turbine_count"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/duct_burners",
+          "name": "duct_burners",
+          "description": "HRSG supplementary firing present (US, EIA-860)",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "duct_burners"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/hrsg_bypass_capability",
+          "name": "hrsg_bypass_capability",
+          "description": "Plant can bypass its HRSG (simple-cycle operation) (US, EIA-860)",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "hrsg_bypass_capability"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/carbon_capture",
+          "name": "carbon_capture",
+          "description": "Carbon-capture technology reported (US, EIA-860)",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "carbon_capture"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/planned_retirement_year",
+          "name": "planned_retirement_year",
+          "description": "Planned generator retirement year where filed (US, EIA-860)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "planned_retirement_year"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/us_eia_plant_code",
+          "name": "us_eia_plant_code",
+          "description": "EIA plant code (join key for US plants)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "us_eia_plant_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/measured_thermal_efficiency_pct",
+          "name": "measured_thermal_efficiency_pct",
+          "description": "MEASURED net thermal efficiency % = 3412.14/heat-rate (US, eGRID/EPA CEMS)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "measured_thermal_efficiency_pct"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/measured_heat_rate_btu_per_kwh",
+          "name": "measured_heat_rate_btu_per_kwh",
+          "description": "MEASURED annual heat rate, Btu/kWh (US, eGRID)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "measured_heat_rate_btu_per_kwh"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/measured_co2_intensity_kg_per_mwh",
+          "name": "measured_co2_intensity_kg_per_mwh",
+          "description": "MEASURED CO2 output rate, kg/MWh (US, eGRID/EPA CEMS)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "measured_co2_intensity_kg_per_mwh"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/measured_capacity_factor",
+          "name": "measured_capacity_factor",
+          "description": "MEASURED annual capacity factor (US, eGRID)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "measured_capacity_factor"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ccgt-hrsg-fleet/measured_net_generation_gwh",
+          "name": "measured_net_generation_gwh",
+          "description": "MEASURED annual net generation, GWh (US, eGRID)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "data/ccgt_hrsg_fleet.csv"
+            },
+            "extract": {
+              "column": "measured_net_generation_gwh"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

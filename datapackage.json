@@ -1,0 +1,221 @@
+{
+  "name": "global-ccgt-hrsg-fleet",
+  "title": "Global CCGT & HRSG Fleet Inventory: combined-cycle plants with capacity, owner, HRSG units and turbine models",
+  "version": "1.0.0",
+  "description": "A harmonised single-table inventory of 2,784 combined-cycle gas turbine (CCGT) power plants worldwide and their heat-recovery steam generators (HRSG) - 2,103 GW across 135 countries. Each record carries capacity (100%), operating company (99%), commissioning year (89%), lifecycle status (92%), number of HRSG units (100%), a CHP flag (36%) and, where reported, the gas and steam turbine models (18%) and annual CO2 (32%, mostly Climate TRACE modelled - read co2_basis). Compiled and deduplicated from the WRI Global Power Plant Database, Global Energy Monitor (GOGPT) and Climate TRACE. This is a cleaned, analysis-ready compilation of existing open sources - not new primary measurement; equivalent fleet detail is otherwise only available across paid trackers. CC BY 4.0.",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Dmytro Aheiev",
+      "organization": "Inzonex",
+      "role": "author"
+    }
+  ],
+  "sources": [
+    {
+      "title": "WRI Global Power Plant Database",
+      "path": "https://datasets.wri.org/datasets/global-power-plant-database"
+    },
+    {
+      "title": "Global Energy Monitor - Global Oil & Gas Plant Tracker",
+      "path": "https://globalenergymonitor.org/projects/global-oil-gas-plant-tracker/"
+    },
+    {
+      "title": "Climate TRACE",
+      "path": "https://climatetrace.org/"
+    },
+    {
+      "title": "US EIA Form 860 (generator-level, combined-cycle detail for US plants)",
+      "path": "https://www.eia.gov/electricity/data/eia860/"
+    },
+    {
+      "title": "US EPA eGRID (CEMS-based MEASURED net generation, heat input, CO2 → efficiency & CO2-intensity for US plants)",
+      "path": "https://www.epa.gov/egrid"
+    }
+  ],
+  "resources": [
+    {
+      "name": "ccgt-hrsg-fleet",
+      "path": "data/ccgt_hrsg_fleet.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "plant_id",
+            "type": "string",
+            "description": "Stable identifier (WRI GPPD id or GEM id)"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "Plant name"
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "description": "Country (canonicalised via ISO3)"
+          },
+          {
+            "name": "iso3",
+            "type": "string",
+            "description": "ISO 3166-1 alpha-3"
+          },
+          {
+            "name": "latitude",
+            "type": "number",
+            "description": "WGS84"
+          },
+          {
+            "name": "longitude",
+            "type": "number",
+            "description": "WGS84"
+          },
+          {
+            "name": "capacity_mw",
+            "type": "number",
+            "description": "Installed capacity, MW"
+          },
+          {
+            "name": "commissioning_year",
+            "type": "integer",
+            "description": "Year of commissioning where known (89%)"
+          },
+          {
+            "name": "gem_status",
+            "type": "string",
+            "description": "Lifecycle status (operating/construction/announced/...) from GEM (92%)"
+          },
+          {
+            "name": "hrsg_units",
+            "type": "integer",
+            "description": "Number of heat-recovery steam generators at the plant (100%)"
+          },
+          {
+            "name": "chp",
+            "type": "boolean",
+            "description": "Combined heat & power (cogeneration) flag (36% populated)"
+          },
+          {
+            "name": "gas_steam_turbine_models",
+            "type": "string",
+            "description": "Gas + steam turbine make/model strings where known (18%)"
+          },
+          {
+            "name": "turbine_class",
+            "type": "string",
+            "description": "Indicative GT technology class (H/J, F, E/legacy) from turbine model where known"
+          },
+          {
+            "name": "technology",
+            "type": "string",
+            "description": "Constant: CCGT"
+          },
+          {
+            "name": "owner",
+            "type": "string",
+            "description": "Operating company / owner (99%)"
+          },
+          {
+            "name": "co2_tonnes_per_year",
+            "type": "number",
+            "description": "Annual CO2 where available (32%) - see co2_basis"
+          },
+          {
+            "name": "co2_source",
+            "type": "string",
+            "description": "Climate TRACE / US EPA GHGRP / EU ETS"
+          },
+          {
+            "name": "co2_basis",
+            "type": "string",
+            "description": "measured (EPA/EU ETS) or modelled (Climate TRACE)"
+          },
+          {
+            "name": "generation_gwh",
+            "type": "number",
+            "description": "Annual generation, GWh, where reported (25%)"
+          },
+          {
+            "name": "region",
+            "type": "string",
+            "description": "Sub-national region"
+          },
+          {
+            "name": "nearest_place",
+            "type": "string",
+            "description": "Nearest populated place"
+          },
+          {
+            "name": "data_source",
+            "type": "string",
+            "description": "Backbone provenance: WRI / GEM-GOGPT / Climate TRACE"
+          },
+          {
+            "name": "gas_turbine_count",
+            "type": "integer",
+            "description": "Number of combustion-turbine units (US plants, EIA-860 generator records)"
+          },
+          {
+            "name": "duct_burners",
+            "type": "boolean",
+            "description": "HRSG supplementary firing present (US, EIA-860)"
+          },
+          {
+            "name": "hrsg_bypass_capability",
+            "type": "boolean",
+            "description": "Plant can bypass its HRSG (simple-cycle operation) (US, EIA-860)"
+          },
+          {
+            "name": "carbon_capture",
+            "type": "boolean",
+            "description": "Carbon-capture technology reported (US, EIA-860)"
+          },
+          {
+            "name": "planned_retirement_year",
+            "type": "integer",
+            "description": "Planned generator retirement year where filed (US, EIA-860)"
+          },
+          {
+            "name": "us_eia_plant_code",
+            "type": "string",
+            "description": "EIA plant code (join key for US plants)"
+          },
+          {
+            "name": "measured_thermal_efficiency_pct",
+            "type": "number",
+            "description": "MEASURED net thermal efficiency % = 3412.14/heat-rate (US, eGRID/EPA CEMS)"
+          },
+          {
+            "name": "measured_heat_rate_btu_per_kwh",
+            "type": "integer",
+            "description": "MEASURED annual heat rate, Btu/kWh (US, eGRID)"
+          },
+          {
+            "name": "measured_co2_intensity_kg_per_mwh",
+            "type": "integer",
+            "description": "MEASURED CO2 output rate, kg/MWh (US, eGRID/EPA CEMS)"
+          },
+          {
+            "name": "measured_capacity_factor",
+            "type": "number",
+            "description": "MEASURED annual capacity factor (US, eGRID)"
+          },
+          {
+            "name": "measured_net_generation_gwh",
+            "type": "number",
+            "description": "MEASURED annual net generation, GWh (US, eGRID)"
+          }
+        ],
+        "primaryKey": "plant_id"
+      }
+    }
+  ]
+}

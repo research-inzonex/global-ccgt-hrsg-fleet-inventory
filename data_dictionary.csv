@@ -1,0 +1,34 @@
+field,type,description
+plant_id,string,Stable identifier (WRI GPPD id or GEM id)
+name,string,Plant name
+country,string,Country (canonicalised via ISO3)
+iso3,string,ISO 3166-1 alpha-3
+latitude,number,WGS84
+longitude,number,WGS84
+capacity_mw,number,"Installed capacity, MW"
+commissioning_year,integer,Year of commissioning where known (89%)
+gem_status,string,Lifecycle status (operating/construction/announced/...) from GEM (92%)
+hrsg_units,integer,Number of heat-recovery steam generators at the plant (100%)
+chp,boolean,Combined heat & power (cogeneration) flag (36% populated)
+gas_steam_turbine_models,string,Gas + steam turbine make/model strings where known (18%)
+turbine_class,string,"Indicative GT technology class (H/J, F, E/legacy) from turbine model where known"
+technology,string,Constant: CCGT
+owner,string,Operating company / owner (99%)
+co2_tonnes_per_year,number,Annual CO2 where available (32%) - see co2_basis
+co2_source,string,Climate TRACE / US EPA GHGRP / EU ETS
+co2_basis,string,measured (EPA/EU ETS) or modelled (Climate TRACE)
+generation_gwh,number,"Annual generation, GWh, where reported (25%)"
+region,string,Sub-national region
+nearest_place,string,Nearest populated place
+data_source,string,Backbone provenance: WRI / GEM-GOGPT / Climate TRACE
+gas_turbine_count,integer,"Number of combustion-turbine units (US plants, EIA-860 generator records)"
+duct_burners,boolean,"HRSG supplementary firing present (US, EIA-860)"
+hrsg_bypass_capability,boolean,"Plant can bypass its HRSG (simple-cycle operation) (US, EIA-860)"
+carbon_capture,boolean,"Carbon-capture technology reported (US, EIA-860)"
+planned_retirement_year,integer,"Planned generator retirement year where filed (US, EIA-860)"
+us_eia_plant_code,string,EIA plant code (join key for US plants)
+measured_thermal_efficiency_pct,number,"MEASURED net thermal efficiency % = 3412.14/heat-rate (US, eGRID/EPA CEMS)"
+measured_heat_rate_btu_per_kwh,integer,"MEASURED annual heat rate, Btu/kWh (US, eGRID)"
+measured_co2_intensity_kg_per_mwh,integer,"MEASURED CO2 output rate, kg/MWh (US, eGRID/EPA CEMS)"
+measured_capacity_factor,number,"MEASURED annual capacity factor (US, eGRID)"
+measured_net_generation_gwh,number,"MEASURED annual net generation, GWh (US, eGRID)"

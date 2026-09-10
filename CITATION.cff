@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "Global CCGT & HRSG Fleet Inventory: a harmonised single-table compilation with capacity, owner, HRSG-unit counts and turbine models"
+type: dataset
+authors:
+  - family-names: Aheiev
+    given-names: Dmytro
+    orcid: "https://orcid.org/0009-0001-5512-0291"
+    affiliation: Inzonex
+version: 1.0.0
+doi: 10.5281/zenodo.20728927
+license: CC-BY-4.0
+url: "https://inzonex.co.uk/poweratlas/ccgt-hrsg-fleet/"
+abstract: >-
+  An open, analysis-ready inventory of 2,813 combined-cycle gas turbine (CCGT)
+  power plants worldwide and their heat-recovery steam generators (HRSG) -
+  approximately 2,067 GW across 134 countries. Each record carries capacity,
+  operating company, commissioning year, lifecycle status, number of HRSG units,
+  a CHP flag, gas/steam turbine models (18%) and annual CO2 where available (32%,
+  mostly Climate TRACE modelled; EPA/EU ETS subset measured - see co2_basis).
+  Compiled and deduplicated from the WRI Global Power Plant Database, Global
+  Energy Monitor (GOGPT) and Climate TRACE. A cleaned compilation of open
+  sources, not new primary measurement.
+keywords:
+  - CCGT
+  - combined cycle gas turbine
+  - HRSG
+  - heat recovery steam generator
+  - gas turbine fleet
+  - power plants
+  - waste heat
+  - cogeneration

@@ -50,7 +50,7 @@ and gas-fleet age / retirement analysis.
 | `data_dictionary.csv` | Field codebook |
 | `DATA_DESCRIPTOR.md` | Short data-descriptor (EarthArXiv-ready) |
 | `CITATION.cff` · `LICENSE` | Citation metadata / CC BY 4.0 |
-| `build_dataset.py` | Reproducible builder |
+| `build_dataset.py` | Current builder. It does not reproduce the v1.0.0 files byte for byte; the files in `data/` are the exact v1.0.0 files from the Zenodo record |
 
 ## Honest limitations
 

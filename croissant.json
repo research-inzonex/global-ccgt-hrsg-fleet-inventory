@@ -49,7 +49,7 @@
   "@type": "sc:Dataset",
   "conformsTo": "http://mlcommons.org/croissant/1.0",
   "name": "global-ccgt-hrsg-fleet",
-  "description": "A harmonised single-table inventory of 2,784 combined-cycle gas turbine (CCGT) power plants worldwide and their heat-recovery steam generators (HRSG) - 2,103 GW across 135 countries. Each record carries capacity (100%), operating company (99%), commissioning year (89%), lifecycle status (92%), number of HRSG units (100%), a CHP flag (36%) and, where reported, the gas and steam turbine models (18%) and annual CO2 (32%, mostly Climate TRACE modelled - read co2_basis). Compiled and deduplicated from the WRI Global Power Plant Database, Global Energy Monitor (GOGPT) and Climate TRACE. This is a cleaned, analysis-ready compilation of existing open sources - not new primary measurement; equivalent fleet detail is otherwise only available across paid trackers. CC BY 4.0.",
+  "description": "A harmonised single-table inventory of 2,813 combined-cycle gas turbine (CCGT) power plants worldwide and their heat-recovery steam generators (HRSG) - 2,067 GW across 134 countries. Each record carries capacity (100%), operating company (99%), commissioning year (89%), lifecycle status (92%), number of HRSG units (100%), a CHP flag (36%) and, where reported, the gas and steam turbine models (18%) and annual CO2 (32%, mostly Climate TRACE modelled - read co2_basis). Compiled and deduplicated from the WRI Global Power Plant Database, Global Energy Monitor (GOGPT) and Climate TRACE. This is a cleaned, analysis-ready compilation of existing open sources - not new primary measurement; equivalent fleet detail is otherwise only available across paid trackers. CC BY 4.0.",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "url": "https://inzonex.co.uk/",
   "creator": {
@@ -87,7 +87,7 @@
       "description": "ccgt-hrsg-fleet table",
       "contentUrl": "data/ccgt_hrsg_fleet.csv",
       "encodingFormat": "text/csv",
-      "sha256": "e6568bf89d80065d4bc301bf64887800b84f14bd4222f0e1a46bb5a57d6641ac"
+      "sha256": "a689c73b6658a294da68089570e6a2452c0fe2e280055f6a28680f3dad8bfeb9"
     }
   ],
   "recordSet": [
